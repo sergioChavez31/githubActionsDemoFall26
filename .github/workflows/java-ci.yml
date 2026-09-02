@@ -2,21 +2,23 @@ name: Java CI
 on:
   push:
   pull_request:
+
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+    - name: Checkout code
       uses: actions/checkout@v4
 
-      - name: Set up Java
+    - name: Set up Java
       uses: actions/setup-java@v4 
       with:
         distribution: temurin 
         java-version: "17"
       
-      - name: Compile
+    - name: Compile
       run: javac Calculator.java CalculatorTest.java
       
-      - name: Run tests
+    - name: Run tests
       run: java CalculatorTest
